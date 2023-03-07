@@ -9,7 +9,7 @@ const Card = (props)=>{
                 <div className="card_container">
                     <img src={item.img}/>
                     <p>{item.name}</p>
-                    <p>{item.type}</p>
+                    <p>{item.species}</p>
                 </div>)
             })}
         </div>
