@@ -35,9 +35,7 @@ function App() {
       <main>
         <img className='mainIMG' src={img}/>
         <input placeholder='Filter by name...'/>
-        
         <Card list={listData}/>
-        
       </main>
     </div>
   );
