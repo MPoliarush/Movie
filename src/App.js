@@ -51,7 +51,7 @@ function App() {
     const response = await fetch('https://rickandmortyapi.com/api/character')
     const items = await response.json()
     
-    const characters = items.results.map(charactersData=>{
+    let characters = items.results.map(charactersData=>{
       return {
         img:charactersData.image,
         name:charactersData.name,
@@ -61,9 +61,10 @@ function App() {
         type:charactersData.type
       }
     })
+    characters = characters.sort((a,b)=>(a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
     console.log(characters)
-    setFetchedData(characters)
 
+    setFetchedData(characters)
     setFiltered(characters)
   }
 
@@ -73,15 +74,12 @@ function App() {
   },[])
 
 
-  
   useEffect(()=>{
-    console.log(filtered)
-    
       let filteredNames;
-      console.log(inputData)
       filteredNames = filtered.filter(item=>{
         return item.name.includes(inputData)
       })
+
       setFetchedData(filteredNames)
    
   },[inputData])
@@ -93,7 +91,7 @@ function App() {
       <main>
         <img className='mainIMG' src={img} />
         <input onChange={inputHandler} placeholder='Filter by name...' />
-        <Card list={fetchedData}/>
+        <Card list={fetchedData} onClick/>
       </main>
     </div>
   );
