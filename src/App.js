@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import img from './images/first.png'
 
-import Card from './components/Card';
+import Cards from './components/Cards';
 
 
 
@@ -84,6 +84,9 @@ function App() {
    
   },[inputData])
 
+
+
+
   
 
   return (
@@ -91,7 +94,7 @@ function App() {
       <main>
         <img className='mainIMG' src={img} />
         <input onChange={inputHandler} placeholder='Filter by name...' />
-        <Card list={fetchedData} onClick/>
+        <Cards list={fetchedData} onClick/>
       </main>
     </div>
   );

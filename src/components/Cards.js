@@ -1,7 +1,7 @@
 import React from 'react'
 import img from '../images/im.jpeg'
 
-const Card = (props)=>{
+const Cards = (props)=>{
     return (
         <div className='cardsWrapper'>
             {props.list.map(item=>{
@@ -15,4 +15,4 @@ const Card = (props)=>{
         </div>
     )
 }
-export default Card
+export default Cards
