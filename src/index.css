@@ -7,7 +7,36 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App{
+  max-width: 100%;
+  width:1440px;
+  margin: 0 auto;
 }
+
+main{
+  width: 70%;
+  margin: 0 auto;
+  /* border: solid black; */
+}
+
+.mainIMG{
+  display: block;
+  margin-top: 86px;
+  margin-left: 21.6%;
+}
+
+input{
+  width:91.5%;
+  background-image: url(./images/Icon.png);
+  background-repeat: no-repeat;
+  background-position: 14px ;
+  padding: 18px 47px 19px;
+  border-radius: 8px;
+  margin-top: 16px;
+  margin-left: -6px;
+  border-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+}
+

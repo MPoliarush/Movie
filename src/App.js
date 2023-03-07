@@ -1,9 +1,14 @@
-
+import React from 'react'
+import img from './images/first.png'
+import icon from './images/Icon.png'
 
 function App() {
   return (
     <div className="App">
-      <h1>hello</h1>
+      <main>
+        <img className='mainIMG' src={img}/>
+        <input placeholder='Filter by name...'/>
+      </main>
     </div>
   );
 }
