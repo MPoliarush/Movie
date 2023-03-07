@@ -8,6 +8,8 @@ import Card from './components/Card';
 function App() {
 
   const [fetchedData, setFetchedData]=useState([])
+  const [filtered, setFiltered] =useState([])
+  const [inputData,setInputData] = useState(' ')
 
   // const listData = [
   //   {
@@ -37,11 +39,18 @@ function App() {
   //   },
   // ]
 
+
+
+  const inputHandler = (event)=>{
+    setInputData(event.target.value)
+  }
+
+
+
   async function getItems(){
     const response = await fetch('https://rickandmortyapi.com/api/character')
     const items = await response.json()
     
-
     const characters = items.results.map(charactersData=>{
       return {
         img:charactersData.image,
@@ -54,6 +63,8 @@ function App() {
     })
     console.log(characters)
     setFetchedData(characters)
+
+    setFiltered(characters)
   }
 
 
@@ -61,11 +72,27 @@ function App() {
    getItems()
   },[])
 
+
+  
+  useEffect(()=>{
+    console.log(filtered)
+    
+      let filteredNames;
+      console.log(inputData)
+      filteredNames = filtered.filter(item=>{
+        return item.name.includes(inputData)
+      })
+      setFetchedData(filteredNames)
+   
+  },[inputData])
+
+  
+
   return (
     <div className="App">
       <main>
-        <img className='mainIMG' src={img}/>
-        <input placeholder='Filter by name...'/>
+        <img className='mainIMG' src={img} />
+        <input onChange={inputHandler} placeholder='Filter by name...' />
         <Card list={fetchedData}/>
       </main>
     </div>
